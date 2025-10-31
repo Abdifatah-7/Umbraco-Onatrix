@@ -7,50 +7,6 @@
 }
 
 
-<header>
-    <div class="topbar bg-[var(--clr-primary)]">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="address">
-                <p class="text-white text-[13px] hidden sm:block">Klarabergsviadukten 90, 111 64 Stockholm</p>
-            </div>
-            <div class="socials flex h-full">
-                <a href=""><img class="px-4 py-4 border-y-0 border-x border-gray-500" src="/Images/Icon facebook.svg" alt="Facebook logo"></a>
-                <a href=""><img class="px-4 py-4 border-y-0 border-x border-gray-500" src="/Images/Icon twitter.svg" alt="Twitter logo"></a>
-                <a href=""><img class="px-4 py-4 border-y-0 border-x border-gray-500" src="/Images/Icon pinterest.svg" alt="LinkedIn logo"></a>
-            </div>
-        </div>
-    </div>
-
-    <nav class="container mx-auto px-4 py-6 flex justify-between items-center">
-        <div class="logo">
-            <a href="/index.html"> <img src="/Images/Brand.svg" alt="Logo Onitrix"> </a>
-        </div>
-
-        <!-- Hamburger Button -->
-        <button id="menu-toggle" class="lg:hidden text-gray-800 focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-        </button>
-
-        <!-- Menu Items -->
-        <div id="menu-items" class="hidden lg:flex lg:items-center lg:gap-[4rem] absolute lg:relative top-24 lg:top-auto left-0 w-full lg:w-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-6 lg:p-0 z-50">
-            <div class="navlinks flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-[3rem] font-bold text-[1rem]">
-                <a href="/about.html">About</a>
-                <a href="/services.html">Service</a>
-                <a href="">Project</a>
-                <a href="">Contact</a>
-            </div>
-
-        </div>
-
-        <div class="relative flex items-center mt-6 lg:mt-0">
-            <input type="checkbox" id="searchToggle" class="hidden peer">
-            <label for="searchToggle" class="absolute top-1/2 left-3 -translate-y-1/2 z-10 cursor-pointer">
-                <i class="fa-solid fa-magnifying-glass text-gray-500 peer-checked:text-blue-500"></i>
-            </label>
-            <input type="text" placeholder="Search..." class="w-0 opacity-0 h-10 pl-10 pr-4 border border-gray-300 rounded-full transition-all duration-300 ease-in-out focus:outline-none peer-checked:w-64 peer-checked:opacity-100">
-        </div>
-    </nav>
-</header>
 
 @Html.GetBlockListHtml(Model.Sections)
 
