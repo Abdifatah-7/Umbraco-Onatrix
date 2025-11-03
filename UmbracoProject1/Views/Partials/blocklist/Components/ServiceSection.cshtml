@@ -7,25 +7,30 @@
     var sectionColor = settings?.ServiceBackgroundColor?.Color ?? "#ffffff";
 }
 
+<section class="bg-[@sectionColor] py-[4rem] px-70">
 
-<section class="py-[4rem] bg-[var(@sectionColor)]">
-    <div class="container mx-auto px-4">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
         <div class="flex flex-col gap-2 items-center">
-            @if(settings!.ShowServiceLabel)
-            {
-                <h2 class="text-[.875rem] text-[#09C3A9] font-bold uppercase">@content.ServiceLabel</h2>
-            }
-            <div class="text-[2.5rem] font-bold text-[#4F5955]">@Html.Raw(content.ServiceTitle) </div>
-        </div>
-    </div>
 
-    <div class="mt-5 grid grid-cols-3 gap-4">
-        <div class="bg-[var(--clr-neutral)] border-2 border-[var(--clr-white-100)] m-full min-h-[350px] overflow-hidden">
-            <a href="#" class="block no-underline">
-                <h3 class="p-[1.5rem] font-bold text-[var(--clr-primary)]">Risk Management</h3>
-                <img src="/images/image-21-min 1.svg" class="block w-full h-[220px] object-cover">
-                <p class="p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
-            </a>
+            @if (settings!.ShowServiceLabel)
+            {
+                <h2 class="text-[var(--clr-secondary)] font-bold">@content.ServiceLabel</h2>
+            }            
+            <div class="rte">@Html.Raw(content.ServiceTitle)</div>
+        </div>
+
+        <div class=" mt-6  grid grid-cols-3 gap-4">
+            <div class="bg-neutral border-2 border-neutral shadow-md w-full min-h-[350px] overflow-hidden">
+                <a href="#" class="block no-underline">
+                    <h4 class="p-[1.5rem] text-main text-2xl font-semibold" >Risk Management</h4>
+                    <img src="~/Images/image-21-min 1.svg" class="w-full block h-[220px] object-cover">
+                    <p class="text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+                </a>                
+            </div>        
+         
+           
+           
+            
         </div>
     </div>
 </section>
