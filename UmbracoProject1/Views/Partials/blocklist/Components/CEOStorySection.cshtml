@@ -1,0 +1,25 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.CeoStorySection)Model.Content;
+}
+
+<section class="max-w-7xl container mx-auto px-4 py-16 grid md:grid-cols-2 gap-4 items-center">
+    <div class="flex flex-col gap-8 overflow-hidden ">
+
+        @if (content.CeoImage != null)
+        {
+            <img src="@content.CeoImage.Url()" alt="Our Team" class="rounded-2xl shadow-lg w-[400px] h-[570px]" />
+        }
+        <div class="flex flex-row ">
+            <p class="text-[var(--clr-primary)] text-4 italic">@content.CeoName - </p>
+            <p class="text-[var(--clr-primary)] text-4 italic"> @content.CeoTitle</p>
+        </div>
+    </div>
+
+    <div class="about-content whitespace-pre-line leading-relaxed">
+        @Html.Raw(content.BodyText)
+    </div>
+
+
+</section>

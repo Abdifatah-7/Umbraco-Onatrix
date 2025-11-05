@@ -12,32 +12,32 @@
 
 <section class="bg-[#F7F7F7] bg-no-repeat">
 	<div class="max-w-7xl mx-auto px-4 flex flex-row gap-16 pt-[4rem]">
-		<div class="w-1/2">
+		<div id="bg-img" class="w-1/2 overflow-hidden">
 			@if (content.ContactImage != null)
 			{
 				<img src="@content.ContactImage?.Url()" />
 			}
 		</div>
 		<div class="flex flex-col justify-center gap-8">
-			<h2 class="font-bold text-primary text-[2.5rem] w-2/3">@content.ContactTitle</h2>
+			<h2 class="font-bold text-[var(--clr-primary)] text-[2.5rem] w-2/3">@content.ContactTitle</h2>
 			<div>
 				<div class="flex flex-row gap-1 items-center">
-					<i class="fa-solid fa-location-dot text-secondary"></i>
-					<p class="font-semibold text-primary">@content.ContactLocation</p>
+					<i class="fa-solid fa-location-dot text-[var(--clr-secondary)]"></i>
+					<p class="font-semibold text-[var(--clr-primary)]">@content.ContactLocation</p>
 				</div>
 				<p class="text-body-text pl-[1.5rem]">@contactAdress</p>
 			</div>
 			<div>
 				<div class="flex flex-row gap-1 items-center">
-					<i class="fa-solid fa-phone text-secondary"></i>
-					<p class="font-semibold text-primary">@content.ContactPhone</p>
+					<i class="fa-solid fa-phone text-[var(--clr-secondary)]"></i>
+					<p class="font-semibold text-[var(--clr-primary)]">@content.ContactPhone</p>
 				</div>
 				<p class="text-body-text pl-[1.5rem]">@contactPhone</p>
 			</div>
 			<div>
 				<div class="flex flex-row gap-1 items-center">
-					<i class="fa-solid fa-envelope text-secondary"></i>
-					<p class="font-semibold text-primary">@content.ContactEmail</p>
+					<i class="fa-solid fa-envelope text-[var(--clr-secondary)]"></i>
+					<p class="font-semibold text-[var(--clr-primary)]">@content.ContactEmail</p>
 				</div>
 				<p class="text-body-text pl-[1.5rem]">@contactEmail</p>
 			</div>

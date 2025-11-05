@@ -1,0 +1,31 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.TrustedBySection)Model.Content;
+}
+
+<section id="our-client" class="our-client bg-white py-20 overflow-hidden">
+    <div class="max-w-7xl container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold text-gray-800 mt-2 mb-12">@content.Headline</h2>
+        <p class="text-[40px] font-bold text-[#F2EDDC] tracking-widest">@content.HighlightNumber</p>
+
+    </div>
+
+    <p class="text-center text-[1rem]"> @content.Description</p>
+
+    <div class="flex justify-center  mt-12">
+        @if (content.ButtonLink != null)
+        {
+          <a href="@content.ButtonLink.Url" class="bg-[#4F5955] text-[#F2EDDC] py-5 px-10 no-underline rounded cursor-pointer self-start font-bold">@content.ButtonText</a>
+        }
+    </div>
+
+    <div class="flex items-center mt-[4rem] justify-center">
+
+        @if (content.TeamImage != null)
+        {
+            <img src="@content.TeamImage.Url()" />
+        }
+    </div>
+</section>

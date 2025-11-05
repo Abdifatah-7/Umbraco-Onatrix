@@ -8,7 +8,7 @@
     --clr-primary: #4F5955;
     --clr-main-light: #606966;
     --clr-accent: #F2EDDC;
-    --clr-secondary:#D9C3A9;
+    --clr-secondary: #D9C3A9;
     --clr-gray-400: #4B5264;
     --clr-body-text: #535656;
     --clr-body-text-100: #999999;
@@ -29,3 +29,29 @@ body {
 .current a {
     color: var(--clr-secondary);
 }
+
+#bg-img {
+    background-image: url('/images/Component 1.svg');
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+}
+
+.bg-dotmap {
+    background-image: url('/images/dot-map 1.svg');
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+#our-client {
+    background-image: url('/Images/dot-map 1.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+}
+
+.custom-spacing p {
+    line-height: 1.8; /* ökar radavstånd inom stycken */
+    margin-bottom: 2rem; /* ökar avstånd mellan stycken */
+}
+

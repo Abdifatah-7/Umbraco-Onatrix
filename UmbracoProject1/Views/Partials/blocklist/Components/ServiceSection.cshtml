@@ -2,6 +2,7 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
     var content = (ContentModels.ServiceSection)Model.Content;
+    // var serviceItem = (ContentModels.ServiceItem)Model.Content;
     var settings = Model.Settings as ContentModels.ServiceSetting;
 
     var sectionColor = settings?.ServiceBackgroundColor?.Color ?? "#ffffff";
@@ -19,18 +20,40 @@
             <div class="rte">@Html.Raw(content.ServiceTitle)</div>
         </div>
 
-        <div class=" mt-6  grid grid-cols-3 gap-4">
-            <div class="bg-neutral border-2 border-neutral shadow-md w-full min-h-[350px] overflow-hidden">
-                <a href="#" class="block no-underline">
-                    <h4 class="p-[1.5rem] text-main text-2xl font-semibold" >Risk Management</h4>
-                    <img src="~/Images/image-21-min 1.svg" class="w-full block h-[220px] object-cover">
-                    <p class="text-sm p-[1.5rem]">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
-                </a>                
-            </div>        
-         
-           
-           
+
+        <div class="mt-6 grid grid-cols-3 gap-4">
+            
+            @if (content.ServiceItems != null && content.ServiceItems.Any())
+            {
+                @foreach (var item in content.ServiceItems)
+                {
+                    var serviceItem = (ContentModels.ServiceItem)item.Content;
+
+                    <div class="bg-neutral border-2 border-neutral shadow-md w-full min-h-[350px] overflow-hidden">
+                        <a href="#" class="block no-underline">
+                            <h4 class="p-[1.5rem] text-main text-2xl font-semibold">
+                                @serviceItem.Titel
+                            </h4>
+
+                            @if (serviceItem.Image != null)
+                            {
+                                <img src="@serviceItem.Image.Url()" alt="@serviceItem.Titel" class="w-full block h-[220px] object-cover">
+                            }
+
+                            <p class="text-sm p-[1.5rem]">
+                                @serviceItem.Description
+                            </p>
+                        </a>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-center col-span-3 text-gray-500">No services available</p>
+            }
             
         </div>
+
     </div>
 </section>
+
