@@ -1,0 +1,71 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.TestimonialSection)Model.Content;
+}
+
+<section class="py-8 bg-[#F7F7F7]">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+            @* Vänster kolumn - Text *@
+            <div class="flex flex-col gap-6">
+                @* Label *@
+                @if (!string.IsNullOrEmpty(content.TestimonialLabel))
+                {
+                    <p class="text-sm text-[var(--clr-secondary)] uppercase tracking-wider font-semibold">
+                        @content.TestimonialLabel
+                    </p>
+                }
+
+                @* Headline *@
+                @if (!string.IsNullOrEmpty(content.TestimonialHeadline))
+                {
+                    <h2 class="text-[40px] text-[var(--clr-primary)] font-bold text-gray-900 leading-tight">
+                        @content.TestimonialHeadline
+                    </h2>
+                }
+
+                @* Quote Text *@
+                @if (!string.IsNullOrEmpty(content.TestimonialQuoteText))
+                {
+                    <p class="text-[20px] italic text-[#999999] leading-relaxed">
+                        @content.TestimonialQuoteText
+                    </p>
+                }
+
+                @* Star Rating *@
+                @if (content.StarRating > 0)
+                {
+                    <div class="flex gap-1">
+                        @for (int i = 0; i < content.StarRating; i++)
+                        {
+                            <i class="fa-solid fa-star"></i>
+                        }
+                    </div>
+                }
+
+                @* Client Info *@
+                <div class="mt-4">
+                    @if (!string.IsNullOrEmpty(content.ClientName))
+                    {
+                        <p class="font-semibold text-[14px] text-[#2D303A]">@content.ClientName</p>
+                    }
+                    @if (!string.IsNullOrEmpty(content.ClientCompany))
+                    {
+                        <p class="text-[#2D303A] text-[20px] italic">@content.ClientCompany</p>
+                    }
+                </div>
+            </div>
+
+            @* Höger kolumn - Bild *@
+            <div class="relative">
+                @if (content.ClientImage != null)
+                {
+                    <img src="@content.ClientImage.Url()" alt="@content.ClientName" class="w-full h-full object-cover">
+                }
+            </div>
+
+        </div>
+    </div>
+</section>
