@@ -159,6 +159,22 @@
             "tag": "ul",
             "class": "rte-ul"
           }
+        },
+        {
+          "label": "Image",
+          "items": [
+            {
+              "label": "Full Image",
+              "data": {
+                "tag": "img",
+                "class": "full-img"
+              },
+              "appearance": { "style": "w-full h-auto object-cover" }
+            }
+
+
+          ]
+
         }
       ]
     },

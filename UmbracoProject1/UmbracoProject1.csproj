@@ -8,6 +8,9 @@
   <ItemGroup>
     <Content Include="App_Plugins\OnatrixRte\umbraco-package.json" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\js\Form.js" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Umbraco.Cms" Version="16.2.0" />
