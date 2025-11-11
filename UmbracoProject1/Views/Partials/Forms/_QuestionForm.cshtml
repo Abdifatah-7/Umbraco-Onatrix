@@ -1,0 +1,35 @@
+﻿@using UmbracoProject1.ViewModels
+@model QuestionFormViewModel
+
+@using (Html.BeginUmbracoForm("QuestionFormSubmit", "Form", FormMethod.Post, new { novalidate = "novalidate", id = "questionForm" }))
+
+{
+
+       
+    <div class="flex flex-row gap-4">
+
+        <div class="bg-white w-1/2 rounded">
+            <label asp-for="Name" class="sr-only"></label>
+            <input asp-for="Name" type="text" placeholder="@Html.DisplayNameFor(x => x.Name)" class="w-full p-3 italic border border-border focus:ring-2 focus:ring-primary focus:outline-none" />
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="bg-white w-1/2 rounded">
+            <label asp-for="Email" class="sr-only"></label>
+            <input asp-for="Email" type="text" placeholder="@Html.DisplayNameFor(x => x.Email)" class="w-full p-3 italic border border-border focus:ring-2 focus:ring-primary focus:outline-none" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+
+    <div class="bg-white">
+        <label asp-for="Question" class="sr-only"></label>
+        <textarea asp-for="Question" placeholder="@Html.DisplayNameFor(x => x.Question)" rows="5" class="w-full my-6 p-3 italic border border-border focus:ring-2 focus:ring-primary focus:outline-non"> </textarea>
+        <span asp-validation-for="Question"></span>
+    </div>
+        
+    <div class="">
+        <button type="submit" class="bg-[#4F5955] text-secondary text-center rounded-md cursor-pointer select-none py-3 px-12 text-[1.125rem]">Submit</button>
+    </div>
+   
+}
+

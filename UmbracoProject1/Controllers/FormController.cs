@@ -34,7 +34,27 @@ namespace UmbracoProject1.Controllers
             TempData["FormSuccess"] = "Thank you, your request has been recived and we will get back to you soon.";
             return RedirectToCurrentUmbracoPage();
         }
- 
+
+        [HttpPost]
+        public IActionResult QuestionFormSubmit(QuestionFormViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return CurrentUmbracoPage();
+            }
+
+            var result = _formSubmissions.SaveQuestionRequest(model);
+
+            if (!result)
+            {
+                TempData["FormError"] = "Something went wrong while submitting your request. Please try again later";
+                return RedirectToCurrentUmbracoPage();
+            }
+
+            TempData["Success"] = "Thank you, your Question has been recived and we will get back to you soon";
+            return RedirectToCurrentUmbracoPage();
+        }
+
     }
 
 
