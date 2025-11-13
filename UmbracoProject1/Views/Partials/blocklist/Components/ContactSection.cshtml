@@ -2,6 +2,10 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
     var content = (ContentModels.ContactSection)Model.Content;
+	var settings = Model.Settings as ContentModels.ContactSettings;
+
+
+	var sectionColor = settings?.BackgroundColor?.Color ?? "#ffffff";
 
 	var rootContent = Umbraco.ContentAtRoot();
 	var siteSettings = rootContent.OfType<ContentModels.SiteSettings>().FirstOrDefault();
@@ -10,7 +14,7 @@
 	var contactEmail = siteSettings?.ContactEmail?.ToString() ?? "Ingen e-post angiven";
 }
 
-<section class="bg-[#F7F7F7] bg-no-repeat my-16">
+<section class="bg-[@sectionColor] bg-no-repeat">
 	<div class="max-w-7xl mx-auto px-4 flex flex-row gap-16 pt-[4rem]">
 		<div id="bg-img" class="w-1/2 overflow-hidden">
 			@if (content.ContactImage != null)

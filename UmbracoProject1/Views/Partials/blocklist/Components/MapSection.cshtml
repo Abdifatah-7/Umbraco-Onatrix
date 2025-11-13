@@ -1,0 +1,49 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using UmbracoProject1.ViewModels
+@{
+    var content = (ContentModels.MapSection)Model.Content;
+	var settings = Model.Settings as ContentModels.CallbackSettings;
+
+	var formVM = new CallbackFormViewModel
+	{
+		Options = settings?.CallbackRequestOption ?? []
+	};
+}
+
+<section class="relative">
+	<div class="absolute inset-0 z-0">
+		@if (content.MapBackgroundImage != null)
+		{
+			<img src="@content.MapBackgroundImage.Url()" class="w-full h-full object-cover" />
+		}
+	</div>
+
+	<div class=" relative z-10 container max-w-7xl mx-auto px-4 flex justify-center items-end">
+		<div class="w-4/5 bg-white flex flex-col items-center p-10 gap-2 shadow-xl rounded-lg">
+			<p class="text-[.875rem] text-secondary font-bold uppercase">@content.FormLabel</p>
+			<h2 class="font-bold text-primary text-[2.5rem] w-3/5 text-center">@content.FormTitle</h2>
+			<p class="text-body-text italic w-1/3 text-center pb-4">@content.FormBodyText</p>
+
+			<div class="w-full">
+				<partial name="Partials/Forms/_CallbackForm" model="formVM" view-data='new ViewDataDictionary(ViewData) { { "LayoutVariant", "wide" } }' />
+
+				@if (TempData["FormSuccess"] != null)
+				{
+					<div class="bg-green-50 text-green-700 p-4 mx-[2rem] mb-4 rounded-md">
+						@TempData["FormSuccess"]
+					</div>
+					TempData.Remove("FormSuccess");
+				}
+				else if (TempData["FormError"] != null)
+				{
+					<div class="bg-red-50 text-red-700 p-4 mx-[2rem] mb-4 rounded-md">
+						@TempData["FormError"]
+					</div>
+					TempData.Remove("FormError");
+				}
+			</div>
+
+		</div>
+	</div>
+</section>

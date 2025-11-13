@@ -55,29 +55,34 @@
             
         </div>
 
-        <ul class="flex justify-center items-center gap-2 py-4">
-            <li>
-                <a href="#" class="hover:bg-gray-50" aria-label="Next page">
-                    <span class="text-5 text-[#EAEAEA] font-semibold ">Prev</span>
-                </a>
-            </li>
+        @if (settings!.ShowPagination)
+        {
+            
+            <ul class="flex justify-center items-center gap-2 py-4">
+                <li>
+                    <a href="#" class="hover:bg-gray-50" aria-label="Next page">
+                        <span class="text-5 text-[#EAEAEA] font-semibold ">Prev</span>
+                    </a>
+                </li>
 
-            <li>
-                <a href="#" class="flex items-center justify-center size-10 rounded-full text-center text-sm/8 font-medium transition-colors border border-gray-200">
-                    <span>1</span>
-                </a>
-            </li>
+                <li>
+                    <a href="#" class="flex items-center justify-center size-10 rounded-full text-center text-sm/8 font-medium transition-colors border border-gray-200">
+                        <span>1</span>
+                    </a>
+                </li>
 
-            <li class="flex cursor-pointer items-center justify-center size-10 rounded-full bg-transparent text-center text-sm/8 font-medium text-black hover:bg-gray-50 hover:border border-gray-200 ">
-                <span>2</span>
-            </li>
+                <li class="flex cursor-pointer items-center justify-center size-10 rounded-full bg-transparent text-center text-sm/8 font-medium text-black hover:bg-gray-50 hover:border border-gray-200 ">
+                    <span>2</span>
+                </li>
 
-            <li>
-                <a href="#" class="hover:bg-gray-50" aria-label="Next page">
-                    <span class="text-5 font-semibold ">Next</span>
-                </a>
-            </li>
-        </ul>
+                <li>
+                    <a href="#" class="hover:bg-gray-50" aria-label="Next page">
+                        <span class="text-5 font-semibold ">Next</span>
+                    </a>
+                </li>
+            </ul>
+        }
+
 
     </div>
 </section>
