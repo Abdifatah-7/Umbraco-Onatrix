@@ -361,3 +361,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/UmbracoProject1/appsettings.json
+/UmbracoProject1/appsettings.Development.json
